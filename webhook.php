@@ -41,7 +41,7 @@ $alphabet = array(
   "y" => 0,
   "z" => 0
 );
-$conn = new mysqli($mysql['servername'], $mysql['username'], $mysql['password'], $mysql['dbname']);
+$conn = new mysqli($mysql['servername'], $mysql['username'], $mysql['password'], $mysql['database']);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
@@ -60,7 +60,7 @@ for ($i = 97; $i <= 122 ; $i++) {
 }
 
 if ($result->num_rows > 0) {
-  $query = "DELETE FROM " . $mysql['dbname'] . " WHERE id = $sender_id ;";
+  $query = "DELETE FROM " . $mysql['database'] . " WHERE id = $sender_id ;";
   $conn->query($query);
 }
 
