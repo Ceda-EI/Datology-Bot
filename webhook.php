@@ -60,14 +60,16 @@ for ($i = 97; $i <= 122 ; $i++) {
 }
 
 if ($result->num_rows > 0) {
-  $query = "DELETE FROM " . $mysql['database'] . " WHERE id = $sender_id ;";
+  $query = "DELETE FROM data WHERE id = $sender_id ;";
   $conn->query($query);
 }
 
 $query = "INSERT INTO data values( $sender_id";
 
 foreach ($alphabet as $letter=>$num){
-  $query .= "," . $num;
+  if ($letter != "id") {
+    $query .= "," . $num;
+  }
 }
 
 $query .= ");";
