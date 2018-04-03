@@ -75,4 +75,5 @@ foreach ($alphabet as $letter=>$num){
 $query .= ");";
 
 $conn->query($query);
+$conn->close();
 ?>
